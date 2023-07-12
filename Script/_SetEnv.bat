@@ -1,7 +1,7 @@
 @echo off
 
 set PROJECT_NAME=Beluga
-set ENGINE_VERSION=5.2
+set ENGINE_VERSION=5.1
 
 set PROJECT_DIR=%~dp0
 set PROJECT_DIR=%PROJECT_DIR:~0,-8%
@@ -10,6 +10,16 @@ set UPROJECT_PATH=%PROJECT_DIR%\%PROJECT_NAME%.uproject
 set UE_ENGINE_DIR=
 if exist "C:\Program Files\Epic Games\UE_%ENGINE_VERSION%\Engine" (
 	set UE_ENGINE_DIR=C:\Program Files\Epic Games\UE_%ENGINE_VERSION%\Engine
+	goto Succeeded
+)
+
+if exist "D:\UE_%ENGINE_VERSION%\Engine" (
+	set UE_ENGINE_DIR=D:\UE_%ENGINE_VERSION%\Engine
+	goto Succeeded
+)
+
+if exist "E:\UE_%ENGINE_VERSION%\Engine" (
+	set UE_ENGINE_DIR=E:\UE_%ENGINE_VERSION%\Engine
 	goto Succeeded
 )
 
