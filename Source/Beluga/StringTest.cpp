@@ -3,18 +3,28 @@
 void StringTest() 
 {
 	// 생성
+	{
 		// char "asdf"
+		FString strChar("char");
 		// wchar L "asdf"
+		FString strWChar(L"wchar");
 		// tchar TEXT("asdf")
+		FString strTChar(TEXT("wchar"));
 
+	}
 	// 대입 연산자 *
 
 	// Printf
-
+	
 	// Format
+	{
 		// FStringFormatNamedArguments
-		// FStringFormatOrderedArguments
+		
 
+		// FStringFormatOrderedArguments
+		
+	}
+	
 	// operator []
 
 	// 대소비교
@@ -42,9 +52,6 @@ void StringTest()
 	// InsertAt
 	{
 		FString str(TEXT("TEXT"));
-
-		str.InsertAt(0, str);
-
 
 	}
 
