@@ -1,4 +1,5 @@
 #include "BelugaMinimal.h"
+#include "Misc/AutomationTest.h"
 
 void StringTest() 
 {
@@ -15,14 +16,17 @@ void StringTest()
 	// 대입 연산자 *
 
 	// Printf
-	
+	{
+
+	}
 	// Format
 	{
 		// FStringFormatNamedArguments
-		
+		{}
+	
 
 		// FStringFormatOrderedArguments
-		
+		{}
 	}
 	
 	// operator []
