@@ -6,26 +6,47 @@ void StringTest()
 		// char "asdf"
 		// wchar L "asdf"
 		// tchar TEXT("asdf")
-	
+
 	// 대입 연산자 *
 
 	// Printf
 
 	// Format
+		// FStringFormatNamedArguments
+		// FStringFormatOrderedArguments
 
 	// operator []
 
 	// 대소비교
-	
+
 	// TCHAR* 얻기
 
 	// operator*
 
 	// 길이구하기
+	{
+		FString str(TEXT("str"));
+		int32 LenStr = str.Len();
+
+		check(LenStr == 3);
+	}
 
 	// Replace
+	{
+		FString str(TEXT("asdf"));
+		FString result = str.Replace(TEXT("sd"), TEXT("ds"));
 
-	// Insert
+		check(result == TEXT("adsf"));
+	}
+
+	// InsertAt
+	{
+		FString str(TEXT("TEXT"));
+
+		str.InsertAt(0, str);
+
+
+	}
 
 	// clear
 
@@ -34,11 +55,33 @@ void StringTest()
 	// Shrink
 
 	// RemoveAt
+	{
+		FString str(TEXT("TEXT"));
+		str.RemoveAt(0, 1); // n+1번 째 칸에서 n칸 만큼 글자 삭제
+
+		check(str == TEXT("EXT"));
+	}
 
 	// Left
+	{
+		FString str(TEXT("qwertyuiop"));
+		FString out = str.Left(4);
+
+		check(out == TEXT("qwer"));
+	}
 	// Mid
+	{
+
+	}
 	// Right
-	
+	{
+		FString str(TEXT("qwertyuiop"));
+		FString out = str.Right(4);
+
+		check(out == TEXT("uiop"));
+	}
+
+
 	// 대문자로 변환, 소문자로 변환
 
 	//
