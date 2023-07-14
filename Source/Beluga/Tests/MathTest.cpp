@@ -39,3 +39,12 @@ bool FBelugaTransformTest::RunTest(const FString& Parameters)
 
 	return true;
 }
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBelugaQuatTest, "Beluga.Quat", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::EngineFilter)
+
+bool FBelugaQuatTest::RunTest(const FString& Parameters) 
+{
+	FQuat quat;
+
+	return true;
+}

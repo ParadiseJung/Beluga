@@ -5,7 +5,7 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBelugaStringTest, "Beluga.String", EAutomation
 
 bool FBelugaStringTest::RunTest(const FString& Parameters)
 {
-	//TestTrue(TEXT("Always FAIL!"), false);
+	TestTrue(TEXT("Always FAIL!"), false);
 	// 생성, 대입
 	{
 		FString strChar("Char");
@@ -150,6 +150,16 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 			TestEqual(TEXT("String ToLower"), LChange, TEXT("text"));
 			//check(Low == TEXT("text"));
 		}
+	}
+
+	// Shrink
+	{
+		FString Sh(TEXT("Shrink"), 3);
+		Sh.Shrink();
+
+		TestEqual(TEXT("String Shrink"), Sh, TEXT("Shrink"));
+		//check(Sh == TEXT("Shrink"));
+		// 끝에 있는 모든 슬랙 제거
 	}
 
 	return true;
