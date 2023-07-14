@@ -8,14 +8,14 @@ bool FBelugaVectorTest::RunTest(const FString& Parameters)
 	FVector vec;
 	FVector vec2 = vec;
 
-	vec2 = FVector::UPVector;
+	vec2 = FVector::UpVector;
 
 	return true;
 }
 
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBelugaRotationTest, "Beluga.Rotation", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::EngineFilter)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBelugaRotatorTest, "Beluga.Rotator", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::EngineFilter)
 
-bool FBelugaRotationTest::RunTest(const FString& Parameters)
+bool FBelugaRotatorTest::RunTest(const FString& Parameters)
 {
 	FRotator rot(FRotator::ZeroRotator);
 
@@ -26,7 +26,7 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBelugaMatrixTest, "Beluga.Matrix", EAutomation
 
 bool FBelugaMatrixTest::RunTest(const FString& Parameters)
 {
-	FMatrix mat =FMatrix::Identity;
+	FMatrix mat = FMatrix::Identity;
 
 	return true;
 }

@@ -5,7 +5,7 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBelugaStringTest, "Beluga.String", EAutomation
 
 bool FBelugaStringTest::RunTest(const FString& Parameters)
 {
-	TestTrue(TEXT("Always FAIL!", false));
+	//TestTrue(TEXT("Always FAIL!"), false);
 	// 생성, 대입
 	{
 		FString strChar("Char");
@@ -18,14 +18,14 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 	}
 	// Printf
 	{
-		TestEqual(TEXT("Print"), FString::Printf(Text("%d %f %s"), 123, 1.0f, TEXT("String")), TEXT("123, 1.000000 String"));
+		TestEqual(TEXT("Print"), FString::Printf(TEXT("%d %f %s"), 123, 1.0f, TEXT("String")), TEXT("123 1.000000 String"));
 	}
 	// Format
 	{
 		// NameArguments
 		{
 			FStringFormatNamedArguments NamedArgs;
-			NamedArgs.Add(TEXT("Fisrt"), 123);
+			NamedArgs.Add(TEXT("First"), 123);
 			NamedArgs.Add(TEXT("Second"), 1.0f);
 			NamedArgs.Add(TEXT("Third"), TEXT("String"));
 
@@ -50,12 +50,12 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 
 		// []
 		{
-			TestEqual(TEXT("Operator []"), strApple[0], L'A')
+			TestEqual(TEXT("Operator []"), strApple[0], L'A');
 		}
 
 		// < >
 		{
-			TestEqual(TEXT("Operator <"), strApple < strBanana);
+			TestEqual(TEXT("Operator <"), strApple < strBanana, true);
 		}
 	}
 
@@ -64,7 +64,7 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 		FString str(TEXT("str"));
 		int32 LenStr = str.Len();
 
-		TestEqual(TEXT("FString Len", LenStr, 3);
+		TestEqual(TEXT("FString Len"), LenStr, 3);
 		//check(LenStr == 3);
 	}
 
@@ -98,9 +98,20 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 	// Right
 	{
 		FString str(TEXT("qwertyuiop"));
-		FString Rout = str.right(4);
+		FString Rout = str.Right(4);
 
 		TestEqual(TEXT("String right"), Rout, TEXT("uiop"));
 		//check(out == TEXT("uiop"));
 	}
+
+	// InsertAt
+	{
+		FString str(TEXT("TEXT"));
+		str.InsertAt(1, TEXT("EXT"));
+
+		TestEqual(TEXT("String InsertAt"), str, TEXT("TEXTEXT"));
+		//check(str == TEXT("TEXTEXT"));
+	}
+
+	return true;
 }
