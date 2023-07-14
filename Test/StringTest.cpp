@@ -64,7 +64,8 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 		FString str(TEXT("str"));
 		int32 LenStr = str.Len();
 
-		check(LenStr == 3);
+		TestEqual(TEXT("FString Len", LenStr, 3);
+		//check(LenStr == 3);
 	}
 
 	// Replace
@@ -72,30 +73,34 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 		FString str(TEXT("QWER"));
 		FString result = str.Replace(TEXT("WE"), TEXT("EW"));
 
-		check(result == TEXT("QEWR"));
+		TestEqual(TEXT("String Replace"), result, TEXT("QEWR"));
+		//check(result == TEXT("QEWR"));
 	}
 
 	// RemoveAt
 	{
 		FString str(TEXT("TEXT"));
-		str.RemoveAt(0,1);
+		str.RemoveAt(0, 1);
 
-		check(str == TEXT("EXT"));
+		TestEqual(TEXT("String RemoveAT"), str, TEXT("EXT"));
+		//check(str == TEXT("EXT"));
 	}
 
 	// Left
 	{
 		FString str(TEXT("qwertyuiop"));
-		FString out = str.Left(4);
+		FString Lout = str.Left(4);
 
-		check(out == TEXT("qwer"));
+		TestEqual(TEXT("String Left"), Lout, TEXT("qwer"));
+		//check(out == TEXT("qwer"));
 	}
 
 	// Right
 	{
-		FString str (TEXT("qwertyuiop"));
-		FString out = str.right(4);
+		FString str(TEXT("qwertyuiop"));
+		FString Rout = str.right(4);
 
-		check(out == TEXT("uiop"));
+		TestEqual(TEXT("String right"), Rout, TEXT("uiop"));
+		//check(out == TEXT("uiop"));
 	}
 }
