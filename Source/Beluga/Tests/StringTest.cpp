@@ -92,7 +92,7 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 		FString Lout = str.Left(4);
 
 		TestEqual(TEXT("String Left"), Lout, TEXT("qwer"));
-		//check(out == TEXT("qwer"));
+		//check(Lout == TEXT("qwer"));
 	}
 
 	// Right
@@ -101,7 +101,16 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 		FString Rout = str.Right(4);
 
 		TestEqual(TEXT("String right"), Rout, TEXT("uiop"));
-		//check(out == TEXT("uiop"));
+		//check(Rout == TEXT("uiop"));
+	}
+
+	// Mid
+	{
+		FString str(TEXT("qwertyuiop"));
+		FString Mout = str.Mid(3, 4);
+
+		TestEqual(TEXT("String mid"), Mout, TEXT("rtyu"));
+		//check(Mout == TEXT("rtyu"));
 	}
 
 	// InsertAt
@@ -111,6 +120,36 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 
 		TestEqual(TEXT("String InsertAt"), str, TEXT("TEXTEXT"));
 		//check(str == TEXT("TEXTEXT"));
+	}
+
+	// isEmpty
+	{
+		FString Empty(TEXT("Not Empty"));
+		bool isEmpty = Empty.IsEmpty();
+
+		TestEqual(TEXT("String isEmpty"), isEmpty, false);
+		//check(isEmpty == false);
+	}
+
+	// 대소문자 변환
+	{
+		// 대문자로 변환 (ToUpper)
+		{
+			FString Up(TEXT("Text"));
+			FString UChange = Up.ToUpper();
+
+			TestEqual(TEXT("String ToUpper"), UChange, TEXT("TEXT"));
+			//check(UChange == TEXT("TEXT"));
+		}
+
+		// 소문자로 변환 (ToLower)
+		{
+			FString Low(TEXT("Text"));
+			FString LChange = Low.ToLower();
+
+			TestEqual(TEXT("String ToLower"), LChange, TEXT("text"));
+			//check(Low == TEXT("text"));
+		}
 	}
 
 	return true;
